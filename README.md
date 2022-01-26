@@ -1,2 +1,2 @@
 # exercise-week-04-ansible
-Prerequists - Download cisco 1K https://drive.google.com/drive/folders/1vyqq99r0C3IOVoDVgbDktJ5wfRAiW1y1?usp=sharing download it from here
+Download these ova https://drive.google.com/drive/folders/1C-QrAd6CEGqhz0SQ71UbenMRHH3qsgcF?usp=sharing for next weeks class. 
