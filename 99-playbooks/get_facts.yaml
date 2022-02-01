@@ -1,0 +1,9 @@
+---
+- name: Get facts 
+  hosts: cisco
+  gather_facts: no
+
+  tasks:
+    - name: Gather all legacy facts
+      cisco.ios.ios_facts:
+        gather_subset: all
