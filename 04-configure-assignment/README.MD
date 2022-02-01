@@ -1,7 +1,7 @@
 # Assignment .. Create a set of ansible playbooks.
 The following assignment will get you started in writing ansible playbooks. Use the basic lab we have created and build a set of playbooks that configures the following settings.
 
-* I've substitiued this assignment instead of having a quiz next week*
+* I've substituted this assignment instead of having a quiz next week*
 
 ## Due Date: <b> Feb 11th</b>
 ## Playbooks to create
