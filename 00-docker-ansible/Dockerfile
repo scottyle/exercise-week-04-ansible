@@ -22,8 +22,9 @@ RUN pip3 install --upgrade pip; \
     ansible-galaxy collection install cisco.iosxr; \
     ansible-galaxy collection install juniper.device; \
     ansible-galaxy collection install f5networks.f5_modules; \
-    git config --global user.name "Sebbycorp"; \
-    git config --global user.email "sebastian@maniak.io";
+    git config --global user.name "yourusename"; \
+    git config --global user.email "youremail"; \ 
+    git clone https://github.com/<yourusename>/exercise-week-04-ansible.git /work/;
 
 WORKDIR /work
 
