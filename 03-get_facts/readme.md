@@ -1,4 +1,23 @@
 # Step 1: Setup/Connect to your ansible server
+
+Demonstration use of Ansible facts on network infrastructure.
+
+Ansible facts are information derived from speaking to the remote network elements. Ansible facts are returned in structured data (JSON) that makes it easy manipulate or modify. For example a network engineer could create an audit report very quickly using Ansible facts and templating them into a markdown or HTML file.
+
+This exercise will cover:
+
+Building an Ansible Playbook from scratch.
+Using ansible-navigator :doc for documentation
+Using the cisco.ios.facts module.
+Using the debug module.
+
+Explanation of terms:
+
+* namespace - example cisco - A namespace is grouping of multiple collections. The cisco namespace contains multiple collections including ios, nxos, and iosxr.
+* collection - example ios - A collection is a distribution format for Ansible content that can include playbooks, roles, modules, and plugins. The ios collection contains all the modules for Cisco IOS/IOS-XE
+* module - example facts - Modules are discrete units of code that can be used in a playbook task. For example the facts modules will return structured data about that specified system.
+
+
 1. Log into your ansible server or deploy the docker from the folder above. 
 * <b>Optional</b> if you are using the docker and VS Code.. 
   0. Edit the docker to include you own github account
@@ -44,6 +63,25 @@ ansible_connection=network_cli
 rtr1
 rtr2
 ```
+
+## Creating the play
+
+Enter the following play definition into facts.yml:
+
+```
+---
+- name: gather information from routers
+  hosts: cisco
+  gather_facts: no
+```
+
+Here is an explanation of each line:
+
+* The first line, --- indicates that this is a YAML file.
+* The - name: keyword is an optional description for this particular Ansible Playbook.
+* The hosts: keyword means this playbook against the group cisco defined in the inventory file.
+* The gather_facts: no is required since as of Ansible 2.8 and earlier, this only works on Linux hosts, and not network infrastructure. We will use a specific module to gather facts for network equipment.
+
 
 # Step 4: Create your first Cisco playbook
 * Lets create a simple playbook that shows us the version
@@ -153,3 +191,8 @@ Create a playbook that will provide us detailed output for a specific configurat
 
 13. Next execute the playbook to make sure you are successful.
 
+
+## Takeaways
+* The ansible command will allow you access to documentation without an internet connection. This documentation also matches the version of Ansible on the control node.
+* The cisco.ios.facts module gathers structured data specific for Cisco IOS. There are relevant modules for each network platform. For example there is a junos_facts for Juniper Junos, and a eos_facts for Arista EOS.
+* The debug module allows an Ansible Playbook to print values to the terminal window.

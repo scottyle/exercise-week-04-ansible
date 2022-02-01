@@ -1,0 +1,15 @@
+---
+- name:  Display Cisco info
+  hosts: cisco
+  gather_facts: no
+  
+  tasks:
+
+    - name: Configure the login banner
+      cisco.ios.ios_banner:
+        banner: login
+        text: |
+          This is my login banner
+          that contains a multiline
+          string
+        state: present
