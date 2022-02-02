@@ -11,3 +11,7 @@ C:\Program Files (x86)\VMware\VMware Workstation
 
 # Start  authentication
 .\vmrest.exe -C
+
+
+# Example repos
+* https://github.com/qsypoq/Ansible-VMware-Workstation-Fusion-Pro-Modules
