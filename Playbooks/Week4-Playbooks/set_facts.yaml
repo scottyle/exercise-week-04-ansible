@@ -1,0 +1,58 @@
+---
+- name:  Set router hostnames
+  hosts: cisco
+  gather_facts: no
+
+  tasks:
+    - name: set hostname
+      cisco.ios.ios_hostname:
+        config:
+          hostname: "{{ inventory_hostname }}"
+        state: merged
+
+    - name: Set login banner
+      cisco.ios.ios_banner:
+        banner: login
+        text: |
+          This is my login banner 
+          that contains a multiline
+          string
+        state: present
+
+    - name: Apply the SNMP configuration
+      cisco.ios.ios_snmp_server:
+        config:
+          hosts:
+          -   community_string: mergedComm
+              host: 172.16.8.45
+              informs: true
+              traps:
+              - msdp
+              - stun
+              - pki
+              version: 2c
+
+    - name: Set NTP
+      cisco.ios.ios_ntp:
+        server: 8.8.8.8
+        logging: false
+        state: present
+
+    - name: Merge provided OSPF Interfaces configuration
+      cisco.ios.ios_ospf_interfaces:
+        config:
+          - name: GigabitEthernet1
+            address_family:
+              - afi: ipv4
+                process:
+                  id: 1
+                  area_id: 0
+                adjacency: true
+                bfd: true
+                cost:
+                  interface_cost: 5
+        state: merged
+
+
+
+

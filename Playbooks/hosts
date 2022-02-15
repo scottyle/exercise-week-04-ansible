@@ -1,0 +1,15 @@
+[all:vars]
+ansible_user=admin
+ansible_password=admin
+
+[routers:children]
+cisco
+
+[cisco]
+router1 ansible_host=172.24.112.5
+router2 ansible_host=172.24.112.6
+
+[cisco:vars]
+ansible_user=admin
+ansible_network_os=ios
+ansible_connection=network_cli

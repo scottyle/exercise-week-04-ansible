@@ -1,0 +1,6 @@
+---
+
+desc:
+  - description G2
+  - ip address 10.10.10.2 255.255.255.0
+  - no shutdown

@@ -1,0 +1,19 @@
+---
+- name:  Display Cisco info
+  hosts: cisco
+  gather_facts: no
+
+  tasks:
+    - name: Display Cisco Info
+      cisco.ios.ios_facts:
+        gather_subset: all
+
+    - name: Display Model number 
+      debug:
+        msg: "The IOS model is {{ansible_net_model}}"
+    - name: Display hostname 
+      debug:
+        msg: "The hostname is {{ansible_net_hostname}}"
+    - name: Display version and interfaces
+      debug: 
+        msg: "The version is {{ansible_net_version}} the mgmt interface is {{ansible_net_interfaces.GigabitEthernet1.ipv4}}"

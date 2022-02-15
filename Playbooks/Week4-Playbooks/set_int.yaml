@@ -1,0 +1,21 @@
+- name: host_vars Example
+  hosts: cisco
+  gather_facts: false
+  connection: network_cli
+
+  tasks:
+    - name: Interface configs
+      ios_config:
+        lines: "{{ desc }}"
+        parents: Interface GigabitEthernet2
+        before: default interface GigabitEthernet2
+      register: output
+
+    - name: Save running-config
+      ios_config:
+        save_when: modified
+
+
+    - name: print output
+      debug:
+        var: output
