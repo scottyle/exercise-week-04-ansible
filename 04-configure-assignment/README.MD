@@ -12,10 +12,9 @@ The following assignment will get you started in writing ansible playbooks. Use 
 - Name Servers
 - Logging
 - NTP
-- VLANs
-- Configure VLANs 
-- Configure IP address on VLANs 
-- Configure a routing protocol
+- Configure IP address on interfaces
+- Configure a routing protocol (router BGP/OSPF)
+
 
 <i>Note: For NTP or logging or name servers you can use any ip address example 8.8.8.8</i>
 
